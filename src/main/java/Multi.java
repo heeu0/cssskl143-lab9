@@ -4,7 +4,7 @@
  * 
  */
 
-public class Multi implements Runnable {
+public class Multi {
 	private String name = "";
 	
 	public Multi(String newName ) {
@@ -29,8 +29,8 @@ public class Multi implements Runnable {
 	//How many threads are active in this application do you think?
 	//One is for main, one for the GC, and at least two more for t1 and t2 below...
 	public static void main(String[] args) {
-		Thread t1 = new Thread(new Multi("foo1"));
-		Thread t2 = new Thread(new Multi("foo2"));
+		Thread t1 = new Thread(String.valueOf(new Multi("foo1")));
+		Thread t2 = new Thread(String.valueOf(new Multi("foo2")));
 		
 		t1.start();	//this calls run()
 		t2.start();	//start the second thread
